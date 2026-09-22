@@ -545,26 +545,7 @@ function getWordFrequencies(answers) {
 function createOpenAnswersCard(title, answers) {
   const card = createElement("article", "open-answer-card");
   card.append(createElement("h3", "", title));
-  const frequencyTitle = createElement("h4", "", "Часто встречающиеся слова");
-  card.append(frequencyTitle);
 
-  const frequencies = getWordFrequencies(answers.map(({ text }) => text));
-  if (frequencies.length === 0) {
-    card.append(createElement("p", "empty-state compact", "Содержательных слов в ответах нет."));
-  } else {
-    const wordList = createElement("div", "word-list");
-    frequencies.forEach(({ word, count }) => {
-      const item = createElement("span", "word-item");
-      item.append(
-        createElement("span", "word-text", word),
-        createElement("strong", "word-count", String(count)),
-      );
-      wordList.append(item);
-    });
-    card.append(wordList);
-  }
-
-  card.append(createElement("h4", "responses-title", "Полные ответы"));
   if (answers.length === 0) {
     card.append(createElement("p", "empty-state compact", "Ответов на этот вопрос пока нет."));
   } else {
