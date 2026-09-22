@@ -1,0 +1,267 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #29252d;
+  background: #f2eff5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f2eff5;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.survey {
+  width: min(100% - 32px, 680px);
+  margin: 48px auto;
+}
+
+.card {
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid #ddd7e3;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(61, 46, 73, 0.09);
+}
+
+h1 {
+  margin: 0 0 18px;
+  color: #2e2833;
+  font-size: clamp(28px, 5vw, 38px);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.question-meta {
+  margin-bottom: 28px;
+  color: #665d6c;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: #e9e4ed;
+  border-radius: 999px;
+}
+
+.progress-bar {
+  width: 16.666%;
+  height: 100%;
+  background: #705e82;
+  border-radius: inherit;
+  transition: width 180ms ease;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend,
+.question-title {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  color: #2e2833;
+  font-size: clamp(21px, 4vw, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.options {
+  display: grid;
+  gap: 11px;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 14px 16px;
+  border: 1px solid #ddd7e3;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.option:hover {
+  border-color: #9d8eaa;
+  background: #faf8fb;
+}
+
+.option:has(input:checked) {
+  border-color: #705e82;
+  background: #f4f0f7;
+  box-shadow: 0 0 0 1px #705e82;
+}
+
+.option input {
+  width: 20px;
+  height: 20px;
+  margin: 0 12px 0 0;
+  accent-color: #705e82;
+  flex: 0 0 auto;
+}
+
+.option span {
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.other-field {
+  margin-top: 16px;
+}
+
+.other-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.other-field input,
+textarea {
+  width: 100%;
+  border: 1px solid #cfc7d5;
+  border-radius: 10px;
+  color: #29252d;
+  background: #ffffff;
+  outline: none;
+}
+
+.other-field input {
+  padding: 13px 14px;
+}
+
+textarea {
+  min-height: 130px;
+  padding: 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.other-field input:focus,
+textarea:focus {
+  border-color: #705e82;
+  box-shadow: 0 0 0 3px rgba(112, 94, 130, 0.14);
+}
+
+.error {
+  margin: 18px 0 0;
+  padding: 11px 13px;
+  border: 1px solid #bca6aa;
+  border-radius: 9px;
+  color: #6e313b;
+  background: #fbf3f4;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus-visible,
+.option:has(input:focus-visible) {
+  outline: 3px solid rgba(112, 94, 130, 0.28);
+  outline-offset: 2px;
+}
+
+.button-primary {
+  color: #ffffff;
+  background: #705e82;
+}
+
+.button-primary:hover {
+  background: #604f72;
+}
+
+.button-secondary {
+  color: #5d5068;
+  background: #ffffff;
+  border-color: #cfc7d5;
+}
+
+.button-secondary:hover {
+  background: #f7f4f8;
+  border-color: #a99caf;
+}
+
+.final-screen {
+  text-align: center;
+}
+
+.final-screen p {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .survey {
+    width: min(100% - 24px, 680px);
+    margin: 20px auto;
+  }
+
+  .card {
+    padding: 24px 18px;
+    border-radius: 14px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .button-primary {
+    order: 1;
+  }
+
+  .button-secondary {
+    order: 2;
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стресс и восстановление в повседневной жизни</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="survey">
+    <section class="card" id="start-screen">
+      <h1>Стресс и восстановление в повседневной жизни</h1>
+      <p>Приглашаем вас принять участие в небольшом исследовании, посвященном стрессу и способам восстановления в повседневной жизни. Анкета анонимна. Полученные данные будут использоваться в обобщенном виде. Заполнение анкеты займет около 3–5 минут.</p>
+      <button class="button button-primary" id="start-button" type="button">Начать опрос</button>
+    </section>
+
+    <form class="card hidden" id="survey-form" novalidate>
+      <div class="question-meta">
+        <span id="question-counter">Вопрос 1 из 6</span>
+        <div class="progress-track" role="progressbar" aria-label="Прогресс заполнения анкеты" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <section class="question" data-question="1">
+        <fieldset>
+          <legend>Укажите ваш пол</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="gender" value="Женский"><span>Женский</span></label>
+            <label class="option"><input type="radio" name="gender" value="Мужской"><span>Мужской</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="question hidden" data-question="2">
+        <fieldset>
+          <legend>Укажите ваш возраст</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="age" value="20–29 лет"><span>20–29 лет</span></label>
+            <label class="option"><input type="radio" name="age" value="30–39 лет"><span>30–39 лет</span></label>
+            <label class="option"><input type="radio" name="age" value="40–49 лет"><span>40–49 лет</span></label>
+            <label class="option"><input type="radio" name="age" value="50–59 лет"><span>50–59 лет</span></label>
+            <label class="option"><input type="radio" name="age" value="60 лет и старше"><span>60 лет и старше</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="question hidden" data-question="3">
+        <fieldset>
+          <legend>Как часто в повседневной жизни вы испытываете состояние напряжения или стресса?</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="stressFrequency" value="Практически никогда"><span>Практически никогда</span></label>
+            <label class="option"><input type="radio" name="stressFrequency" value="Редко"><span>Редко</span></label>
+            <label class="option"><input type="radio" name="stressFrequency" value="Иногда"><span>Иногда</span></label>
+            <label class="option"><input type="radio" name="stressFrequency" value="Часто"><span>Часто</span></label>
+            <label class="option"><input type="radio" name="stressFrequency" value="Практически ежедневно"><span>Практически ежедневно</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="question hidden" data-question="4">
+        <fieldset>
+          <legend>Какие ситуации чаще всего становятся для вас источником стресса?</legend>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="stressSources" value="Работа или учеба"><span>Работа или учеба</span></label>
+            <label class="option"><input type="checkbox" name="stressSources" value="Отношения с близкими"><span>Отношения с близкими</span></label>
+            <label class="option"><input type="checkbox" name="stressSources" value="Финансовые вопросы"><span>Финансовые вопросы</span></label>
+            <label class="option"><input type="checkbox" name="stressSources" value="Состояние здоровья"><span>Состояние здоровья</span></label>
+            <label class="option"><input type="checkbox" name="stressSources" value="Нехватка времени"><span>Нехватка времени</span></label>
+            <label class="option"><input type="checkbox" name="stressSources" value="Неопределенность будущего"><span>Неопределенность будущего</span></label>
+            <label class="option"><input type="checkbox" id="other-checkbox" name="stressSources" value="Другое"><span>Другое</span></label>
+          </div>
+          <div class="other-field hidden" id="other-field">
+            <label for="other-text">Укажите свой вариант</label>
+            <input type="text" id="other-text" name="otherSource" autocomplete="off">
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="question hidden" data-question="5">
+        <label class="question-title" for="difficult-situations">В каких ситуациях вам особенно трудно справляться со стрессом?</label>
+        <textarea id="difficult-situations" name="difficultSituations" rows="5" placeholder="Опишите, пожалуйста, своими словами."></textarea>
+      </section>
+
+      <section class="question hidden" data-question="6">
+        <label class="question-title" for="recovery">Что помогает вам восстанавливаться после стрессовой ситуации?</label>
+        <textarea id="recovery" name="recovery" rows="5" placeholder="Опишите, пожалуйста, своими словами."></textarea>
+      </section>
+
+      <p class="error hidden" id="validation-error" role="alert"></p>
+
+      <div class="actions">
+        <button class="button button-secondary hidden" id="back-button" type="button">Назад</button>
+        <button class="button button-primary" id="next-button" type="button">Далее</button>
+      </div>
+    </form>
+
+    <section class="card final-screen hidden" id="final-screen">
+      <h1>Спасибо!</h1>
+      <p>Ваши ответы отправлены.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

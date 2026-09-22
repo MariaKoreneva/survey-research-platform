@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Административная панель</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="card status-card" id="session-status" aria-live="polite">
+      <p>Проверка сессии...</p>
+    </section>
+
+    <section class="card login-card hidden" id="login-view">
+      <h1>Вход в административную панель</h1>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="password">Пароль</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <p class="message error hidden" id="login-error" role="alert"></p>
+        <button class="button button-primary" id="login-button" type="submit">Войти</button>
+      </form>
+    </section>
+
+    <section class="dashboard hidden" id="dashboard-view">
+      <header class="card dashboard-header">
+        <div>
+          <p class="eyebrow">Административная панель</p>
+          <h1>Результаты исследования</h1>
+        </div>
+        <div class="header-actions">
+          <button class="button button-secondary" id="export-button" type="button">Выгрузить ответы в Excel</button>
+          <button class="button button-primary" id="logout-button" type="button">Выйти</button>
+        </div>
+      </header>
+
+      <div class="dashboard-layout">
+        <nav class="card navigation" aria-label="Разделы административной панели">
+          <button class="nav-button active" type="button" data-section="overview" aria-current="page">Обзор</button>
+          <button class="nav-button" type="button" data-section="analytics">Аналитика</button>
+          <button class="nav-button" type="button" data-section="open-answers">Открытые ответы</button>
+          <button class="nav-button" type="button" data-section="respondents">Респонденты</button>
+        </nav>
+
+        <div class="content">
+          <section class="card panel" data-panel="overview">
+            <h2>Обзор</h2>
+            <div id="overview-content" aria-live="polite">
+              <p class="data-state">Загрузка данных...</p>
+            </div>
+          </section>
+          <section class="card panel hidden" data-panel="analytics">
+            <h2>Аналитика</h2>
+            <div id="analytics-content" aria-live="polite">
+              <p class="data-state">Загрузка данных...</p>
+            </div>
+          </section>
+          <section class="card panel hidden" data-panel="open-answers">
+            <h2>Открытые ответы</h2>
+            <div id="open-answers-content" aria-live="polite">
+              <p class="data-state">Загрузка данных...</p>
+            </div>
+          </section>
+          <section class="card panel hidden" data-panel="respondents">
+            <h2>Респонденты</h2>
+            <div id="respondents-content" aria-live="polite">
+              <p class="data-state">Загрузка данных...</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
