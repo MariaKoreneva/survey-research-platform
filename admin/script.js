@@ -777,11 +777,12 @@ async function restoreSession() {
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const email = loginForm.elements.email.value.trim();
+  const login = loginForm.elements.email.value.trim();
+  const email = login.toLowerCase() === "demo" ? "demo@surveydemo.local" : login;
   const password = loginForm.elements.password.value;
 
-  if (!email || !password) {
-    showLoginError("Введите email и пароль.");
+  if (!login || !password) {
+    showLoginError("Введите логин или email и пароль.");
     return;
   }
 
@@ -796,7 +797,7 @@ loginForm.addEventListener("submit", async (event) => {
     });
 
     if (!response.ok) {
-      showLoginError("Не удалось войти. Проверьте email и пароль.");
+      showLoginError("Не удалось войти. Проверьте логин или email и пароль.");
       return;
     }
 
